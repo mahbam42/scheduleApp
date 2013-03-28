@@ -2,21 +2,28 @@
   margin: 0;
   padding: 0; }
 
-.row, .schedule {
-  width: 1200px;
-  height: 5em;
-  border: thin black solid;
-  margin: 25px auto;
-  overflow: auto;
-  /* holds the shifts inside the box */ }
+.rowContainer {
+  margin: 0 auto; }
+  .rowContainer .row, .rowContainer .schedule {
+    width: 1200px;
+    height: 5em;
+    border: thin black solid;
+    overflow: auto;
+    /* holds the shifts inside the box */ }
+  .rowContainer .name {
+    width: 50px;
+    position: relative;
+    left: -50px; }
 
 .schedule {
   text-align: center;
   font-weight: 700;
   text-decoration: underline;
-  height: 1.5em;
-  vertical-align: bottom;
-  margin-bottom: 0px; }
+  height: 2em;
+  vertical-align: top;
+  margin-bottom: 0px;
+  z-index: -10;
+  position: relative; }
 
 .schedule + * {
   margin-top: 0px; }

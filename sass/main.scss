@@ -3,12 +3,24 @@
     padding: 0;
 }
 
-.row {
-    width: 1200px;
-    height: 5em;
-    border: thin black solid;
-    margin: 25px auto;
-    overflow: auto; /* holds the shifts inside the box */
+$leftMargin: 75px;
+$name: 50px;
+
+.rowContainer {
+    margin: 0 auto;
+
+    .row {
+	width: 1200px;
+	height: 5em;
+	border: thin black solid;
+	//margin: 5px auto;
+	overflow: auto; /* holds the shifts inside the box */
+    }
+    .name  {
+	    width: $name;
+	    position: relative;
+	    left: -$name;
+    }
 }
 
 .schedule {
@@ -16,9 +28,12 @@
     text-align: center;
     font-weight: 700;
     text-decoration: underline; 
-    height: 1.5em;
-    vertical-align: bottom;
+    height: 2em;
+    vertical-align: top;
     margin-bottom: 0px;
+    z-index: -10;
+    position: relative;
+//    left: $leftMargin;
 }
 
 .schedule + * {
