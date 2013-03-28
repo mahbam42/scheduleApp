@@ -3,17 +3,20 @@
   padding: 0; }
 
 .rowContainer {
-  margin: 0 auto; }
+  width: 1279px; }
   .rowContainer .row, .rowContainer .schedule {
     width: 1200px;
     height: 5em;
+    display: inline-block;
     border: thin black solid;
     overflow: auto;
     /* holds the shifts inside the box */ }
   .rowContainer .name {
-    width: 50px;
-    position: relative;
-    left: -50px; }
+    width: 75px;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    word-wrap: break-word; }
 
 .schedule {
   text-align: center;
@@ -22,6 +25,7 @@
   height: 2em;
   vertical-align: top;
   margin-bottom: 0px;
+  margin-left: 76px;
   z-index: -10;
   position: relative; }
 
