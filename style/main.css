@@ -2,7 +2,36 @@
   margin: 0;
   padding: 0; }
 
-.day {
+.row, .schedule {
   width: 1200px;
+  height: 5em;
   border: thin black solid;
-  margin: 25px auto; }
+  margin: 25px auto;
+  overflow: auto;
+  /* holds the shifts inside the box */ }
+
+.schedule {
+  text-align: center;
+  font-weight: 700;
+  text-decoration: underline;
+  height: 1.5em;
+  vertical-align: bottom;
+  margin-bottom: 0px; }
+
+.schedule + * {
+  margin-top: 0px; }
+
+.column {
+  min-width: 48px;
+  width: 49px;
+  height: 100%;
+  float: left;
+  overflow: visible;
+  border-right: thin black dashed; }
+
+.shift {
+  border: thin black solid;
+  min-width: 50px;
+  height: 2.5em;
+  z-index: 10;
+  text-align: center; }

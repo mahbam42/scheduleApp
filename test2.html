@@ -1,10 +1,174 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<!doctype html>
+
+<html lang="en">
+<title>RGX - Scheduling Software</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="style/main.css" />
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<style type="text/css">
+  .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+  .portlet-header .ui-icon { float: right; }
+  .portlet-content { padding: 0.4em; }
+  .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+  .ui-sortable-placeholder * { visibility: hidden; }
+</style>
+
+<script>
+	$(function() {
+		$( "#resizable" ).resizable({
+			grid: 50
+		});
+	});
+	$(function() {
+		$( ".shift" ).resizable({
+			maxHeight: 50,
+      		maxWidth: 1200,
+//    		minHeight: 30,
+	        minWidth: 44,
+			grid: 25,
+			ghost: true
+		});
+	});
+	</script>
+        
+    <script>
+  $(function() {
+    $( ".column" ).sortable({
+      connectWith: ".column"
+    });
+	
+	$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+      .find( ".portlet-header" )
+        .addClass( "ui-widget-header ui-corner-all" )
+        .prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+        .end()
+      .find( ".portlet-content" );
+ 
+    $( ".portlet-header .ui-icon" ).click(function() {
+      $( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+      $( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
+    });
+	
+    $( ".row" ).disableSelection();
+  });
+  </script>
+
 </head>
 
 <body>
+<h1>Schedule for Awesome Event</h1>
+
+<div class="schedule">
+	<div class="column">1am</div>
+    <div class="column">2am</div>
+    <div class="column">3am</div>
+    <div class="column">4am</div>
+    <div class="column">5am</div>
+    <div class="column">6am</div>
+    <div class="column">7am</div>
+    <div class="column">8am</div>
+    <div class="column">9am</div>
+    <div class="column">10am</div>
+    <div class="column">11am</div>
+    <div class="column">12pm</div>
+    <div class="column">1pm</div>
+    <div class="column">2pm</div>
+    <div class="column">3pm</div>
+    <div class="column">4pm</div>
+    <div class="column">5pm</div>
+    <div class="column">6pm</div>
+    <div class="column">7pm</div>
+    <div class="column">8pm</div>
+    <div class="column">9pm</div>
+    <div class="column">10pm</div>
+    <div class="column">11pm</div>
+    <div class="column">12am</div>
+</div>
+
+<div class="row"><!-- row 1-->   
+	<div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 1</h3> 
+        	<p class="portlet-content">Taco</p>
+    	</div>
+    </div>
+    <div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 2</h3> 
+        	<p class="portlet-content">Taco</p>
+    	</div>
+    </div>
+    <div class="column">
+    
+    </div>
+    <div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 3</h3> 
+    	    <p class="portlet-content">Taco</p>
+	    </div>
+    </div>
+    <div class="column">
+    
+    </div>
+</div>
+
+<div class="row"><!-- row 2-->   
+	<div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 4</h3> 
+        	<p class="portlet-content">Taco</p>
+    	</div>
+    </div>
+    <div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 5</h3> 
+        	<p class="portlet-content">Taco</p>
+    	</div>
+    </div>
+    <div class="column">
+    
+    </div>
+    <div class="column">
+    	<div class="shift" id="shift">
+    		<h3 class="portlet-header">Shift 5</h3> 
+    	    <p class="portlet-content">Taco</p>
+	    </div>
+    </div>
+    <div class="column">
+    
+    </div>
+</div>
+
+
+<div class="row">
+	<div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
 </body>
 </html>

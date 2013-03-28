@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>XXX - jQuery UI Resizable - Snap to grid</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/resources/demos/style.css" />
+    <link rel="stylesheet" href="style/main.css" />
+	<style>
+	#resizable { width: 150px; height: 150px; padding: 0.5em; }
+	#resizable h3 { text-align: center; margin: 0; }
+	</style>
+	<script>
+	$(function() {
+		$( "#resizable" ).resizable({
+			grid: 50
+		});
+	});
+	$(function() {
+		$( "#shift" ).resizable({
+			maxHeight: 50,
+      		maxWidth: 1200,
+    		minHeight: 25,
+	        minWidth: 44,
+			grid: 50
+		});
+	});
+	</script>
+</head>
+<body>
+
+<div id="resizable" class="ui-widget-content">
+	<h3 class="ui-widget-header">Grid</h3>
+</div>
+
+<div class="shift" id="shift">
+	<p>Taco</p>
+</div>
+
+
+</body>
+</html>
