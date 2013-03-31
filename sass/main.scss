@@ -3,15 +3,13 @@
     padding: 0;
 }
 
-$leftMargin: 75px;
 $name: 75px;
 
 .rowContainer {
-//    margin: 0 auto;
     width: 1200px + $name + 4;
     .row {
 	width: 1200px;
-	height: 5em;
+	height: 50px;
         display: inline-block;
 	border: thin black solid;
 	//margin: 5px auto;
@@ -21,8 +19,6 @@ $name: 75px;
         width: $name;
         float: left;
         display: inline-block;
-        //position: relative;
-        //left: -$name;
         text-align: center; 
         word-wrap: break-word;
     }
@@ -39,29 +35,26 @@ $name: 75px;
     margin-left: $name + 1;
     z-index: -10;
     position: relative;
-//    left: $leftMargin;
 }
 
 .schedule + * {
     margin-top: 0px;
 }
-
+// Not used in version 3
 .column {
     min-width: 48px;
     width: 49px;
     height: 100%;
     float: left;
-//    display: inline-block;
     overflow: visible;
     border-right: thin black dashed; 
 }
 
 .shift {
-//    float: left;
 //    display: inline-block;
     border: thin black solid;
     min-width: 50px;
-//    maxHeight: 2em;
+    width: 200px; /* Based on Current Math for a 4 hour shift */ 
     height: 2.5em;
 //    margin: 2px 3px;
     z-index: 10;

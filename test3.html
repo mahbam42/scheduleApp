@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>RGX - Scheduling Software</title>
+<title>TEST 3 | RGX - Scheduling Software</title>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="style/main.css" />
 
@@ -35,32 +35,67 @@
 	});
 	</script>
         
-    <script>
-  $(function() {
-    $( ".column" ).sortable({
-      connectWith: ".column"
-    });
-	
-	$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
-      .find( ".portlet-header" )
-        .addClass( "ui-widget-header ui-corner-all" )
-        .prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
-        .end()
-      .find( ".portlet-content" );
- 
-    $( ".portlet-header .ui-icon" ).click(function() {
-      $( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
-      $( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
-    });
-	
-    $( ".row" ).disableSelection();
-  });
-  </script>
+<script>
+	$(function() {
+		$('.shift').draggable({
+			grid: [25, 50],
+			containment: "parent"
+		})
+	});
+</script>
 
 </head>
 
 <body>
-
+<h1>Super Awesome Scheduling Tool</h1>
+<div class="day">
+    <div class="schedule">
+        <div class="column">1am</div>
+        <div class="column">2am</div>
+        <div class="column">3am</div>
+        <div class="column">4am</div>
+        <div class="column">5am</div>
+        <div class="column">6am</div>
+        <div class="column">7am</div>
+        <div class="column">8am</div>
+        <div class="column">9am</div>
+        <div class="column">10am</div>
+        <div class="column">11am</div>
+        <div class="column">12pm</div>
+        <div class="column">1pm</div>
+        <div class="column">2pm</div>
+        <div class="column">3pm</div>
+        <div class="column">4pm</div>
+        <div class="column">5pm</div>
+        <div class="column">6pm</div>
+        <div class="column">7pm</div>
+        <div class="column">8pm</div>
+        <div class="column">9pm</div>
+        <div class="column">10pm</div>
+        <div class="column">11pm</div>
+        <div class="column" style="border: 0;">12am</div>
+    </div>
+    <div class="rowContainer">
+        <div class="name">
+            <p>Amy Sheridan</p>
+        </div>
+        <div class="row">
+        	<div class="shift">
+            	<p>MOOD</p>
+            </div>
+        </div>
+	</div><!-- End Row Container -->
+    <div class="rowContainer">
+        <div class="name">
+            <p>Richard "Wolverine" Gottlieb</p>
+        </div>
+        <div class="row">
+        	<div class="shift">
+            	<p>Regular Shift</p>
+            </div>
+        </div>
+	</div><!-- End Row-->
+</div><!-- End Day -->
 
 </body>
 </html>
