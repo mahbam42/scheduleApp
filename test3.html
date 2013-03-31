@@ -18,12 +18,12 @@
 </style>
 
 <script>
-	$(function() {
-		$( "#resizable" ).resizable({
-			grid: 50
-		});
-	});
-	$(function() {
+//	$(function() {
+//		$( "#resizable" ).resizable({
+//			grid: 50
+//		});
+//	});
+	var stretch = $(function() {
 		$( ".shift" ).resizable({
 			maxHeight: 50,
       		maxWidth: 1200,
@@ -36,12 +36,30 @@
 	</script>
         
 <script>
-	$(function() {
-		$('.shift').draggable({
-			grid: [25, 50],
-			containment: "parent"
-		})
-	});
+	var drag = $(function () {
+    $('.shift').draggable({
+        snap: true,
+        grid: [25, 50],
+        containment: "parent",
+        axis: "x"
+    });
+});
+$(document).ready(
+$(function () {
+    $('.close').click(function () {
+        $(this).parent().hide();
+    });
+}));
+var $shift = '<div class="shift ui-resizable ui-draggable"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>';
+$(document).ready(
+$('.row').hover(function () {
+    $('.row').css('background-color', 'red');
+    $('.row').click(function () {
+        $($shift).appendTo(this);
+    });
+})
+);
+
 </script>
 
 </head>
@@ -81,6 +99,7 @@
         </div>
         <div class="row">
         	<div class="shift">
+            	<span class="close">X</span>
             	<p>MOOD</p>
             </div>
         </div>
@@ -91,7 +110,12 @@
         </div>
         <div class="row">
         	<div class="shift">
+            	<span class="close">X</span>
             	<p>Regular Shift</p>
+            </div>
+            <div class="shift">
+            	<div class="close">X</div>
+            	<p>Bonus Shift</p>
             </div>
         </div>
 	</div><!-- End Row-->
