@@ -18,16 +18,11 @@
 </style>
 
 <script>
-//	$(function() {
-//		$( "#resizable" ).resizable({
-//			grid: 50
-//		});
-//	});
-	var stretch = $(function() {
+	$(function stretch() {
 		$( ".shift" ).resizable({
 			maxHeight: 50,
       		maxWidth: 1200,
-//    		minHeight: 30,
+            minHeight: 25,
 	        minWidth: 44,
 			grid: 25,
 			ghost: true
@@ -36,7 +31,7 @@
 	</script>
         
 <script>
-	var drag = $(function () {
+	$(function drag() {
     $('.shift').draggable({
         snap: true,
         grid: [25, 50],
@@ -47,18 +42,32 @@
 $(document).ready(
 $(function () {
     $('.close').click(function () {
-        $(this).parent().hide();
+        $(this).parent().remove();
     });
 }));
-var $shift = '<div class="shift ui-resizable ui-draggable"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>';
-$(document).ready(
-$('.row').hover(function () {
-    $('.row').css('background-color', 'red');
-    $('.row').click(function () {
-        $($shift).appendTo(this);
+$shift = '<div class="shift ui-resizable ui-draggable"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>';
+
+// $(document).ready( function() {
+//     $('.row').mouseenter( function() {
+//         //console.log("mouse entered")
+//         $(this).click( function(event) {
+//             console.log("clicked on a row");
+//              $($shift).appendTo(this);
+//              $addOnce = false;
+//             event.stopPropagation();
+//         })
+//     });
+// });
+
+$(document).ready( function(){
+    $('.name').mouseenter( function() {
+        $(this).click( function(event){
+            $(this).siblings('.row').append($shift);
+            $('.shift').drag();
+            event.stopPropagation();
+        })
     });
-})
-);
+});
 
 </script>
 
@@ -114,7 +123,7 @@ $('.row').hover(function () {
             	<p>Regular Shift</p>
             </div>
             <div class="shift">
-            	<div class="close">X</div>
+            	
             	<p>Bonus Shift</p>
             </div>
         </div>
