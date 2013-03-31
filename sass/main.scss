@@ -5,6 +5,13 @@
 
 $name: 75px;
 
+@mixin corners($color, $top, $right, $bottom, $left) {
+    border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
+    -moz-border-radius:  $top $right $bottom $left; // 5px 5px 0px 0px
+    -webkit-border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
+    border: 3px solid $color;
+}
+
 .rowContainer {
     width: 1200px + $name + 4;
     .row {
@@ -63,9 +70,19 @@ $name: 75px;
     .close {
         cursor: pointer;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 1px;
+        right: 1px;
+        margin: 3px;
         font-size: 0.75em;
+        width: 1em;
+        height: 1em;
+        text-align: center;
         color: #CCC;
+        &:hover {
+            color: #ffffff;
+            margin: 0;
+            background-color: #ff0000;
+            @include corners(#ff0000, 50px, 50px, 50px, 50px);
+        }
     }
 }
