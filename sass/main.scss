@@ -51,7 +51,7 @@ $name: 75px;
 }
 
 .shift {
-//    display: inline-block;
+    display: inline-block;
     border: thin black solid;
     min-width: 50px;
     width: 200px; /* Based on Current Math for a 4 hour shift */ 
@@ -59,4 +59,13 @@ $name: 75px;
 //    margin: 2px 3px;
     z-index: 10;
     text-align: center;
+    left: -5px;
+    .close {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 0.75em;
+        color: #CCC;
+    }
 }
