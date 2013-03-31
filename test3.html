@@ -40,7 +40,7 @@
     });
 });
 $(document).ready(
-$(function () {
+$(function close() {
     $('.close').click(function () {
         $(this).parent().remove();
     });
@@ -63,7 +63,12 @@ $(document).ready( function(){
     $('.name').mouseenter( function() {
         $(this).click( function(event){
             $(this).siblings('.row').append($shift);
-            $('.shift').drag();
+            //$('.shift').drag();
+            $(this).siblings('.row').children('.shift').hover( function() {
+                console.log('entered the new shift');
+                close()
+            });
+            //$(this).siblings('.row').children('.shift').draggable();
             event.stopPropagation();
         })
     });
@@ -104,7 +109,7 @@ $(document).ready( function(){
     </div>
     <div class="rowContainer">
         <div class="name">
-            <p>Amy Sheridan</p>
+            <p>Amy</p>
         </div>
         <div class="row">
         	<div class="shift">
@@ -115,7 +120,7 @@ $(document).ready( function(){
 	</div><!-- End Row Container -->
     <div class="rowContainer">
         <div class="name">
-            <p>Richard "Wolverine" Gottlieb</p>
+            <p>Steve</p>
         </div>
         <div class="row">
         	<div class="shift">
