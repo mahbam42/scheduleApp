@@ -69,3 +69,6 @@
       -moz-border-radius: 50px 50px 50px 50px;
       -webkit-border-radius: 50px 50px 50px 50px;
       border: 3px solid red; }
+
+ul li {
+  margin-left: 2em; }
