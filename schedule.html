@@ -45,13 +45,12 @@ $(document).ready( function() {
 		// Add Dates
 
 		// Set up what to add for each day 
-		for(i = 0; i <= eventLength; i++){
-			// var mdy = "";
+		for(i = 1; i <= eventLength; i++){
+			// Set-up for adding the date to each 'day' 
 			mdy = $('#startDate').val().split('-');
 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
-			var day = '<div class="day"><h3>' + dayN + '</h3><div class="rowContainer"></div>';
+			var day = '<div class="day"><h3>' + dayN + ' - Day ' +  i + '</h3><div class="rowContainer"></div>';
 			$('#eventContainer').append($(day));
-			console.log("when i = " + i + " the date printed is " + dayN);
 		};
 	}); // End btnNewEvent click event 
 });
