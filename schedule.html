@@ -26,6 +26,36 @@ $(document).ready(function(){
     $( "#tabs" ).tabs();
 });
 
+$(document).ready( function() {
+	$('#btnNewEvent').click( function() {
+		// Add Event Name 
+		if ($('#txtEventName').val() != ""){
+			$('#eventName').text($('#txtEventName').val());
+		}
+		// Get Event Lenght
+		function parseDate(str) {
+		var mdy = str.split('-')
+		return new Date(mdy[0], mdy[1]-1, mdy[2]);
+		}
+		function daydiff(first, second) {
+			return ((second-first)/(1000*60*60*24))
+		}
+		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
+
+		// Add Dates
+
+		// Set up what to add for each day 
+		for(i = 0; i <= eventLength; i++){
+			// var mdy = "";
+			mdy = $('#startDate').val().split('-');
+			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
+			var day = '<div class="day"><h3>' + dayN + '</h3><div class="rowContainer"></div>';
+			$('#eventContainer').append($(day));
+			console.log("when i = " + i + " the date printed is " + dayN);
+		};
+	}); // End btnNewEvent click event 
+});
+
 
 	</script>
 </head>
@@ -47,6 +77,9 @@ $(document).ready(function(){
 					<td>Start Date</td>
 					<td>End Date</td>
 					<td>Default Shift Length</td>
+					<td rowspan="2">
+						<input type="button" id="btnNewEvent" value="Create Schedule">
+					</td>
 				</tr>
 				<tr>
 					<td><input type="text" name="eventName" id="txtEventName" placeholder="Event Name"></td>
@@ -75,7 +108,7 @@ $(document).ready(function(){
 				<li>Use the "Event Set-up" Tab to enter the Event name and dates</li>
 				<li>Use the "Volunteers" Tab to quickly add a volunteer to the schedule</li>
 				<li>
-					Using the Schedule Grid
+					Using the Schedule Grid:
 					<ul>
 						<li>Click on a Volunteer's name to add a shift for a given day</li>
 						<li>Shifts can be moved by clicking anywhere in a shift and dragging it (Shifts snap to 1/2 intervals)</li>
@@ -86,6 +119,9 @@ $(document).ready(function(){
 			</ul>
 		</div>
 	</div>
-	
+	<div id="eventContainer">
+		<h2 id="eventName"></h2>
+
+	</div>
 </body>
 </html>
