@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prototype 5 - Schedule App</title>
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="style/main.css" />
+
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="scripts/dragAndDrop.js"></script>
+
+	<style type="text/css">
+		#tabs {
+			height: 20%;
+			border: thin solid black;
+			font-size: 10px;
+		}
+		#tabs div {
+			padding-left: 2%;
+		}
+	</style>
+	<script>
+$(document).ready(function(){
+    $( "#tabs" ).tabs();
+});
+
+
+	</script>
+</head>
+<body>
+
+	<h1>Schedule App</h1>
+	<p>RGX Consulting Services &copy; 2013</p>
+
+	<div id="tabs">
+		<ol>
+			<li><a href="#tab-1">Event Set-up</a></li>
+			<li><a href="#tab-2">Volunteers</a></li>
+			<li><a href="#tab-3">Info</a></li>
+		</ol>
+		<div id="tab-1"><!-- Event Set-up -->
+			<table>
+				<tr>
+					<td></td>
+					<td>Start Date</td>
+					<td>End Date</td>
+					<td>Default Shift Length</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="eventName" id="txtEventName" placeholder="Event Name"></td>
+					<td><input type="date" name="startDate" id="startDate"></td>
+					<td><input type="date" name="endDate" id="endDate"></td>
+					<td><input type="number" name="defaultShiftLength" id="defaultShiftLength"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-2"><!-- Volunteer Info -->
+			<table>
+				<tr>
+					<td>Name</td>
+					<td># of Shifts</td>
+					<td>Length of Shifts</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="volunteer" id="txtVolunteer"></td>
+					<td><input type="number" name="shifts" id="txtShifts"></td>
+					<td><input type="number" name="shiftLenght" id="shiftLength"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-3"><!-- Application Info -->
+			<ul>
+				<li>Use the "Event Set-up" Tab to enter the Event name and dates</li>
+				<li>Use the "Volunteers" Tab to quickly add a volunteer to the schedule</li>
+				<li>
+					Using the Schedule Grid
+					<ul>
+						<li>Click on a Volunteer's name to add a shift for a given day</li>
+						<li>Shifts can be moved by clicking anywhere in a shift and dragging it (Shifts snap to 1/2 intervals)</li>
+						<li>Shifts can be deleted by clicking on the "X" in the top right corner</li>
+					</ul>
+				</li>					
+			</ul>
+		</div>
+	</div>
+	
+</body>
+</html>
