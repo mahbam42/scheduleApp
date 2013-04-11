@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Prototype 5 - Schedule App</title>
+	<title>Prototype 5 Volunteer Logic - Schedule App</title>
 
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 	<link rel="stylesheet" href="style/main.css" />
@@ -74,15 +74,18 @@ $(document).ready( function() {
 		// In each row... 
 		$('.rowContainer').each( function() {
 			// check to see if div.name = $name then do the rest of the magic 
-			// ...loop through the number of shifts indicated for the Volunteer and add them to each row 
-			for (var i = 0; i < $shifts; i++){
-				console.log("taco");// + i);
-				var $newshift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-				$(this).children(".row").append($newshift);
-				// stretch($newshift);
-				// drag($newshift);
-				// closer($newshift);
-			};
+			if ($name == $(this).children('.name').text()){
+				// ...loop through the number of shifts indicated for the Volunteer and add them to each row 
+				for (var i = 0; i < $shifts; i++){
+					console.log("taco");// + i);
+					var $newshift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+					$(this).children(".row").append($newshift);
+					// stretch($newshift);
+					// drag($newshift);
+					// closer($newshift);
+				};
+			}
+				
 		});
 	}); // End btnAddVolunteer click event 
 });
