@@ -57,7 +57,8 @@ $(document).ready( function() {
 		};
 
 		// Add shift length global variable 
-	}); // End btnNewEvent click event 
+	}); // End btnNewEvent click event
+
 	// Add volunteer panel logic -all 
 	$('#btnAddVolunteer').click( function(){
 		// Set up the variables 
@@ -73,16 +74,16 @@ $(document).ready( function() {
 		});
 		// In each row... 
 		$('.rowContainer').each( function() {
-			// check to see if div.name = $name then do the rest of the magic 
+			// ... first check to see if div.name = $name then do the rest of the magic...
 			if ($name == $(this).children('.name').text()){
-				// ...loop through the number of shifts indicated for the Volunteer and add them to each row 
+				// ...then loop through the number of shifts indicated for the Volunteer and add them to each row 
 				for (var i = 0; i < $shifts; i++){
-					console.log("taco");// + i);
-					var $newshift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+					var shiftHTML = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+					var $newshift = $(shiftHTML);
 					$(this).children(".row").append($newshift);
-					// stretch($newshift);
-					// drag($newshift);
-					// closer($newshift);
+					stretch($newshift);
+					drag($newshift);
+					closer($newshift);
 				};
 			}
 				
