@@ -22,19 +22,20 @@
 		}
 	</style>
 	<script>
-$(document).ready(function(){
-    $( "#tabs" ).tabs();
+	// Experimental Stuff goes here!
+$(document).ready(function (){
+    $("#tabs").tabs();
 });
 
 $(document).ready( function() {
 	$('#btnNewEvent').click( function() {
 		// Add Event Name 
-		if ($('#txtEventName').val() != ""){
+		if ($('#txtEventName').val() !== ""){
 			$('#eventName').text($('#txtEventName').val());
 		}
 		// Get Event Lenght
 		function parseDate(str) {
-		var mdy = str.split('-')
+		var mdy = str.split('-');
 		return new Date(mdy[0], mdy[1]-1, mdy[2]);
 		}
 		function daydiff(first, second) {
@@ -42,17 +43,20 @@ $(document).ready( function() {
 		}
 		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
 
-		// Add Dates
-
 		// Set up what to add for each day 
-		for(i = 1; i <= eventLength; i++){
+		for(i = 0; i <= eventLength; i++){
 			// Set-up for adding the date to each 'day' 
 			mdy = $('#startDate').val().split('-');
 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
-			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' +  i + '</h3><div class="rowContainer"></div>';
+			var eventDay = (i+1); 
+			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3><div class="rowContainer"></div>';
 			$('#eventContainer').append($(day));
 		};
+
+		// Add shift length global variable 
 	}); // End btnNewEvent click event 
+	// Add volunteer panel logic -all 
+
 });
 
 
@@ -75,7 +79,7 @@ $(document).ready( function() {
 					<td></td>
 					<td>Start Date</td>
 					<td>End Date</td>
-					<td>Default Shift Length</td>
+					<td>Default Shift Length (in Hours)</td>
 					<td rowspan="2">
 						<input type="button" id="btnNewEvent" value="Create Schedule">
 					</td>
@@ -93,7 +97,7 @@ $(document).ready( function() {
 				<tr>
 					<td>Name</td>
 					<td># of Shifts</td>
-					<td>Length of Shifts</td>
+					<td>Length of Shifts (in Hours)</td>
 				</tr>
 				<tr>
 					<td><input type="text" name="volunteer" id="txtVolunteer"></td>
@@ -110,14 +114,14 @@ $(document).ready( function() {
 					Using the Schedule Grid:
 					<ul>
 						<li>Click on a Volunteer's name to add a shift for a given day</li>
-						<li>Shifts can be moved by clicking anywhere in a shift and dragging it (Shifts snap to 1/2 intervals)</li>
+						<li>Shifts can be moved by clicking anywhere in a shift and dragging it (Shifts snap to 1/2 hour intervals)</li>
 						<li>Shifts can be deleted by clicking on the "X" in the top right corner</li>
 					</ul>
 				</li>
-				<p>This application is developed and maintained by <a href="http://maxbrother.com">Max Brother Technologies</a> to report and issue or request features please <a href="https://github.com/mahbam42/scheduleApp/issues/new">Contact Us</a></p>				
+				<p>This application is developed and maintained by <a href="http://maxbrother.com">Max Brother Technologies</a> to report an issue or request features please <a href="https://github.com/mahbam42/scheduleApp/issues/new">Contact Us</a></p>				
 			</ul>
 		</div>
-	</div>
+	</div><!-- End Control Panel -->
 	<div id="eventContainer">
 		<h2 id="eventName"></h2>
 
