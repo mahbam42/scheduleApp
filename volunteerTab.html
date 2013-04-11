@@ -23,11 +23,12 @@
 	</style>
 	<script>
 	// Experimental Stuff goes here!
-$(document).ready(function (){
+$(document).ready(function () {
     $("#tabs").tabs();
 });
 
 $(document).ready( function() {
+	// Set-up a new event schedule 
 	$('#btnNewEvent').click( function() {
 		// Add Event Name 
 		if ($('#txtEventName').val() !== ""){
@@ -35,11 +36,12 @@ $(document).ready( function() {
 		}
 		// Get Event Lenght
 		function parseDate(str) {
-		var mdy = str.split('-');
-		return new Date(mdy[0], mdy[1] - 1, mdy[2]);
+			var mdy = str.split('-');
+			return new Date(mdy[0], mdy[1] - 1, mdy[2]);
 		}
+		// Subtracts start date from the end date to get the number of days 
 		function daydiff(first, second) {
-			return ((second - first)/(1000*60*60*24))
+			return ((second - first)/(1000*60*60*24));
 		}
 		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
 
@@ -48,15 +50,30 @@ $(document).ready( function() {
 			// Set-up for adding the date to each 'day' 
 			mdy = $('#startDate').val().split('-');
 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
-			var eventDay = (i+1); 
+			var eventDay = (i+1); // Not strictly necessary but useful for the lazy 
 			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3><div class="rowContainer"></div>';
+			// stick it in there! 
 			$('#eventContainer').append($(day));
 		};
 
 		// Add shift length global variable 
 	}); // End btnNewEvent click event 
 	// Add volunteer panel logic -all 
+	$('#btnAddVolunteer').click( function(){
+		console.log("You clicked on the button!");
+		// Set up the variables 
+		// Volunteer Name
+		var $name = $('#txtVolunteer').val();
+		// Number of Shifts to Add 
+		var $shifts = $('#shifts').val();
+		var $shiftContainer = '<div class="name"><p>' + $name + '</p></div><div class="row"></div>';
 
+		// For Each Container add the name of the volunteer and the shift holder 
+		$('.rowContainer').each( function() {
+			console.log("taco");
+			$('.rowContainer').append($shiftContainer);
+		});
+	}); // End btnAddVolunteer click event 
 });
 
 
@@ -98,6 +115,9 @@ $(document).ready( function() {
 					<td>Name</td>
 					<td># of Shifts</td>
 					<td>Length of Shifts (in Hours)</td>
+					<td rowspan="2">
+						<input type="button" id="btnAddVolunteer" value="Add Volunteer">
+					</td>
 				</tr>
 				<tr>
 					<td><input type="text" name="volunteer" id="txtVolunteer"></td>
