@@ -25,19 +25,20 @@ function closer(e) {
     });
 }
 
+// Adds a Shift 
+function addNew(e) {
+	// Set Up an Empty Shift 
+    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+    var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
+        $(e).siblings(".row").append($newshift); 
+        // Calls all of the interactive goodies on the new shift 
+        stretch($newshift);
+        drag($newshift);
+        closer($newshift);
+}
 
 $(document).ready(function () {
-    // Set Up an Empty Shift 
-    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-
     // Add a new shift when you click on name 
-    $('.name').click(function (event) {
-        var $newshift = $(shift);
-            $(this).siblings(".row").append($newshift);
-            stretch($newshift);
-            drag($newshift);
-            closer($newshift);
-    });
-
+    $('.name').click( addNew($(this)));
 
 });
