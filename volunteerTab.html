@@ -46,7 +46,7 @@ $(document).ready( function() {
 		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
 
 		// Set up what to add for each day 
-		for(i = 0; i <= eventLength; i++){
+		for(var i = 0; i <= eventLength; i++){
 			// Set-up for adding the date to each 'day' 
 			mdy = $('#startDate').val().split('-');
 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
@@ -71,6 +71,7 @@ $(document).ready( function() {
 		// For Each Container add the name of the volunteer and the shift holder 
 		$('.day').each( function() {
 			$(this).append($shiftContainer); // pulled ".children('.rowContainer')" from this line to hopefully solve a problem... 
+			// Call addNew() on .name here 
 		});
 		// In each row... 
 		$('.rowContainer').each( function() {
@@ -158,8 +159,8 @@ $(document).ready( function() {
 		</div>
 	</div><!-- End Control Panel -->
 	<div id="eventContainer">
-		<h2 id="eventName">taco</h2>
+		<!--<h2 id="eventName">taco</h2>
 
-	<div class="day"><h3>Tue Apr 09 2013 - Day 1</h3><div class="rowContainer"></div></div><div class="day"><h3>Wed Apr 10 2013 - Day 2</h3><div class="rowContainer"></div></div><div class="day"><h3>Thu Apr 11 2013 - Day 3</h3><div class="rowContainer"></div></div><div class="day"><h3>Fri Apr 12 2013 - Day 4</h3><div class="rowContainer"></div></div></div>
+	<div class="day"><h3>Tue Apr 09 2013 - Day 1</h3><div class="rowContainer"></div></div><div class="day"><h3>Wed Apr 10 2013 - Day 2</h3><div class="rowContainer"></div></div><div class="day"><h3>Thu Apr 11 2013 - Day 3</h3><div class="rowContainer"></div></div><div class="day"><h3>Fri Apr 12 2013 - Day 4</h3><div class="rowContainer"></div></div>--></div>
 </body>
 </html>
