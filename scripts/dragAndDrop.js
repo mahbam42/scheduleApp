@@ -30,11 +30,11 @@ function addNew(e) {
 	// Set Up an Empty Shift 
     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
-        $(e).siblings(".row").append($newshift); 
-        // Calls all of the interactive goodies on the new shift 
-        stretch($newshift);
-        drag($newshift);
-        closer($newshift);
+    $(e).siblings(".row").append($newshift); 
+    // Calls all of the interactive goodies on the new shift 
+    stretch($newshift);
+    drag($newshift);
+    closer($newshift);
 }
 
 $(document).ready(function () {
