@@ -1,3 +1,5 @@
+// Various Global Functions 
+
 // Stretch shifts to the desired length
 function stretch(e) {
     $(e).resizable({
@@ -26,19 +28,98 @@ function closer(e) {
 }
 
 // Adds a Shift 
-function addNew(e) {
-	// Set Up an Empty Shift 
-    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-    var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
-    $(e).siblings(".row").append($newshift); 
-    // Calls all of the interactive goodies on the new shift 
-    stretch($newshift);
-    drag($newshift);
-    closer($newshift);
-}
+// function addNew(e) {
+// 	// Set Up an Empty Shift 
+//     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+//     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
+//     $(e).siblings(".row").append($newshift); 
+//     // Calls all of the interactive goodies on the new shift 
+//     stretch($newshift);
+//     drag($newshift);
+//     closer($newshift);
+// }
 
+// Holds all of the page events 
 $(document).ready(function () {
+	// Set Up the Menu 
+	$("#tabs").tabs();
+	
     // Add a new shift when you click on name 
-    $('.name').click( addNew($(this)));
+    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
 
+    $('.name').click(function (event) {
+        var $newshift = $(shift);
+            $(this).siblings(".row").append($newshift);
+            stretch($newshift);
+            drag($newshift);
+            closer($newshift);
+    });
+    //$('.name').click( addNew($(this)));
+
+    // Set-up a new event schedule 
+	$('#btnNewEvent').click( function() {
+		// Add Event Name 
+		if ($('#txtEventName').val() !== ""){
+			$('#eventName').text($('#txtEventName').val());
+		}
+		// Get Event Lenght
+		function parseDate(str) {
+			var mdy = str.split('-');
+			return new Date(mdy[0], mdy[1] - 1, mdy[2]);
+		}
+		// Subtracts start date from the end date to get the number of days 
+		function daydiff(first, second) {
+			return ((second - first)/(1000*60*60*24));
+		}
+		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
+
+		// Set up what to add for each day 
+		for(var i = 0; i <= eventLength; i++){
+			// Set-up for adding the date to each 'day' 
+			mdy = $('#startDate').val().split('-');
+			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
+			var eventDay = (i+1); // Not strictly necessary but useful for the lazy 
+			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3>';
+			// stick it in there! 
+			$('#eventContainer').append($(day));
+		};
+
+		// Add shift length global variable 
+	}); // End btnNewEvent click event
+
+	// Add volunteer panel logic -all 
+	$('#btnAddVolunteer').click( function(){
+		// Set up the variables 
+		// Volunteer Name
+		var $name = $('#txtVolunteer').val();
+		// Number of Shifts to Add 
+		var $shifts = $('#txtShifts').val();
+		var $shiftContainer = '<div class="rowContainer"><div class="name"><p>' + $name + '</p></div><div class="row"></div></div>';
+
+		// For Each Container add the name of the volunteer and the shift holder 
+		$('.day').each( function() {
+			$(this).append($shiftContainer); // pulled ".children('.rowContainer')" from this line to hopefully solve a problem... 
+			// Call addNew() on .name here 
+			$(this).find('.name').click( 
+				console.log("Found Something with .name!")
+
+			); // addNew($(this))
+		});
+		// In each row... 
+		$('.rowContainer').each( function() {
+			// ... first check to see if div.name = $name then do the rest of the magic...
+			if ($name == $(this).children('.name').text()){
+				// ...then loop through the number of shifts indicated for the Volunteer and add them to each row 
+				for (var i = 0; i < $shifts; i++){
+					var shiftHTML = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+					var $newshift = $(shiftHTML);
+					$(this).children(".row").append($newshift);
+					stretch($newshift);
+					drag($newshift);
+					closer($newshift);
+				};
+			}	
+		});
+	}); // End btnAddVolunteer click event 
 });
+
