@@ -5,7 +5,7 @@ function stretch(e) {
     $(e).resizable({
         maxHeight: 50,
         maxWidth: 1200, // 24 (hours) x 50px
-        minHeight: 25, 
+        minHeight: 25,
         minWidth: 44, // 4 hour minimum for shift length (hard coded atm)
         grid: 25, // Snap to the 1/2 hour 
         ghost: true // because it looks cool 
@@ -14,7 +14,7 @@ function stretch(e) {
 // Drag shifts around to change start time 
 function drag(e) {
     $(e).draggable({
-        snap: true, 
+		snap: true,
         grid: [25, 50], //Snaps to the half hour 
         containment: "parent", // keeps each shift in their row
         axis: "x" // pretty clear 
@@ -27,12 +27,12 @@ function closer(e) {
     });
 }
 
-// Adds a Shift 
+//Adds a Shift 
 // function addNew(e) {
-// 	// Set Up an Empty Shift 
+//     // Set Up an Empty Shift 
 //     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
 //     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
-//     $(e).siblings(".row").append($newshift); 
+//     $(e).siblings(".row").append($newshift);
 //     // Calls all of the interactive goodies on the new shift 
 //     stretch($newshift);
 //     drag($newshift);
@@ -43,7 +43,7 @@ function closer(e) {
 $(document).ready(function () {
 	// Set Up the Menu 
 	$("#tabs").tabs();
-	
+
     // Add a new shift when you click on name 
     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
 
@@ -77,13 +77,16 @@ $(document).ready(function () {
 		for(var i = 0; i <= eventLength; i++){
 			// Set-up for adding the date to each 'day' 
 			mdy = $('#startDate').val().split('-');
-			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
+			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i);
 			var eventDay = (i+1); // Not strictly necessary but useful for the lazy 
 			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3>';
 			// stick it in there! 
 			$('#eventContainer').append($(day));
-		};
+		}
 
+		$( "#tabs" ).tabs({
+			active: 1
+		});
 		// Add shift length global variable 
 	}); // End btnNewEvent click event
 
@@ -100,10 +103,10 @@ $(document).ready(function () {
 		$('.day').each( function() {
 			$(this).append($shiftContainer); // pulled ".children('.rowContainer')" from this line to hopefully solve a problem... 
 			// Call addNew() on .name here 
-			$(this).find('.name').click( 
-				console.log("Found Something with .name!")
-
-			); // addNew($(this))
+			// $($shiftContainer).find('.name').click(
+			// 	//console.log("Found Something with .name!");
+			// 	addNew($(this))
+			// ); // addNew($(this))
 		});
 		// In each row... 
 		$('.rowContainer').each( function() {
@@ -117,8 +120,8 @@ $(document).ready(function () {
 					stretch($newshift);
 					drag($newshift);
 					closer($newshift);
-				};
-			}	
+				}
+			}
 		});
 	}); // End btnAddVolunteer click event 
 });
