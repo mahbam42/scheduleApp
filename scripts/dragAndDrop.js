@@ -115,12 +115,13 @@ $(document).ready(function () {
 			if ($name == $(this).children('.name').text()){
 				// ...then loop through the number of shifts indicated for the Volunteer and add them to each row 
 				for (var i = 0; i < $shifts; i++){
-					var shiftHTML = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-					var $newshift = $(shiftHTML);
-					$(this).children(".row").append($newshift);
-					stretch($newshift);
-					drag($newshift);
-					closer($newshift);
+					addNew($this));
+					// var shiftHTML = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+					// var $newshift = $(shiftHTML);
+					// $(this).children(".row").append($newshift);
+					// stretch($newshift);
+					// drag($newshift);
+					// closer($newshift);
 				}
 			}
 		});
