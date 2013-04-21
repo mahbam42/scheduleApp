@@ -27,17 +27,17 @@ function closer(e) {
     });
 }
 
-//Adds a Shift 
-// function addNew(e) {
-//     // Set Up an Empty Shift 
-//     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-//     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
-//     $(e).siblings(".row").append($newshift);
-//     // Calls all of the interactive goodies on the new shift 
-//     stretch($newshift);
-//     drag($newshift);
-//     closer($newshift);
-// }
+//Call to add a new Shift 
+function addNew(e) {
+    // Set Up an Empty Shift 
+    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+    var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
+    $(e).siblings(".row").append($newshift);
+    // Calls all of the interactive goodies on the new shift 
+    stretch($newshift);
+    drag($newshift);
+    closer($newshift);
+}
 
 // Holds all of the page events 
 $(document).ready(function () {
@@ -47,6 +47,7 @@ $(document).ready(function () {
     // Add a new shift when you click on name 
     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
 
+    // If it's already there 
     $('.name').click(function (event) {
         var $newshift = $(shift);
             $(this).siblings(".row").append($newshift);
@@ -54,7 +55,12 @@ $(document).ready(function () {
             drag($newshift);
             closer($newshift);
     });
-    //$('.name').click( addNew($(this)));
+    // Otherwise this catches '.name' when added
+    // Set-up a watch for when '.name' is added to the page 
+	$('#eventContainer').delegate('.name', 'click', function(){
+		//console.log("Clicked on Name, and that means delegate worked");
+		addNew($(this));
+	});
 
     // Set-up a new event schedule 
 	$('#btnNewEvent').click( function() {
@@ -102,11 +108,6 @@ $(document).ready(function () {
 		// For Each Container add the name of the volunteer and the shift holder 
 		$('.day').each( function() {
 			$(this).append($shiftContainer); // pulled ".children('.rowContainer')" from this line to hopefully solve a problem... 
-			// Call addNew() on .name here 
-			// $($shiftContainer).find('.name').click(
-			// 	//console.log("Found Something with .name!");
-			// 	addNew($(this))
-			// ); // addNew($(this))
 		});
 		// In each row... 
 		$('.rowContainer').each( function() {
@@ -123,6 +124,6 @@ $(document).ready(function () {
 				}
 			}
 		});
-	}); // End btnAddVolunteer click event 
-});
+	}); // End btnAddVolunteer click event
+}); // End Document Ready Block 
 
