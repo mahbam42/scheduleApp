@@ -1,3 +1,6 @@
+// Gloabal Variables 
+var $shiftLength = 4*50; // (hours X width) initial value is set to 4 hours and size is 50px per hour
+
 // Various Global Functions 
 
 // Stretch shifts to the desired length
@@ -30,13 +33,23 @@ function closer(e) {
 //Call to add a new Shift 
 function addNew(e) {
     // Set Up an Empty Shift 
-    shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
+    shift = '<div class="shift" style="width: ' + $shiftLength + ';"><span class="close">X</span><p>Regular Shift</p></div>';
     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
     $(e).siblings(".row").append($newshift);
     // Calls all of the interactive goodies on the new shift 
     stretch($newshift);
     drag($newshift);
     closer($newshift);
+
+}
+
+// Set-up default shift length 
+function setShiftLength(e) {
+	if ($(e).val() !== ""){
+		$shiftLength = $(e).val() * 50;
+		// passes the new value to the Volunteer's tab
+		$(shiftLength).val($(e).val());
+	}
 }
 
 // Holds all of the page events 
@@ -90,6 +103,10 @@ $(document).ready(function () {
 			$('#eventContainer').append($(day));
 		}
 
+		// set the shift length
+		setShiftLength($(defaultShiftLength));
+
+		// Move to the volunteer tab 
 		$( "#tabs" ).tabs({
 			active: 1
 		});
@@ -104,6 +121,7 @@ $(document).ready(function () {
 		// Number of Shifts to Add 
 		var $shifts = $('#txtShifts').val();
 		var $shiftContainer = '<div class="rowContainer"><div class="name"><p>' + $name + '</p></div><div class="row"></div></div>';
+		setShiftLength($(shiftLength));
 
 		// For Each Container add the name of the volunteer and the shift holder 
 		$('.day').each( function() {
@@ -114,14 +132,9 @@ $(document).ready(function () {
 			// ... first check to see if div.name = $name then do the rest of the magic...
 			if ($name == $(this).children('.name').text()){
 				// ...then loop through the number of shifts indicated for the Volunteer and add them to each row 
+				var $nameInRow = $(this).children('.name');
 				for (var i = 0; i < $shifts; i++){
-					addNew($this));
-					// var shiftHTML = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
-					// var $newshift = $(shiftHTML);
-					// $(this).children(".row").append($newshift);
-					// stretch($newshift);
-					// drag($newshift);
-					// closer($newshift);
+					addNew($nameInRow);
 				}
 			}
 		});
