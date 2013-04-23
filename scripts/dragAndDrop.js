@@ -116,7 +116,10 @@ $(document).ready(function () {
 			mdy = $('#startDate').val().split('-');
 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i);
 			var eventDay = (i+1); // Not strictly necessary but useful for the lazy 
-			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3>';
+			// This will be made cleaner... 
+			// Sets a row of hours to the top of each day
+			var hours = '<div class="schedule"><div class="column">1am</div><div class="column">2am</div><div class="column">3am</div><div class="column">4am</div><div class="column">5am</div><div class="column">6am</div><div class="column">7am</div><div class="column">8am</div><div class="column">9am</div><div class="column">10am</div><div class="column">11am</div><div class="column">12pm</div><div class="column">1pm</div><div class="column">2pm</div><div class="column">3pm</div><div class="column">4pm</div><div class="column">5pm</div><div class="column">6pm</div><div class="column">7pm</div><div class="column">8pm</div><div class="column">9pm</div><div class="column">10pm</div><div class="column">11pm</div><div class="column" style="border: 0;">12am</div></div>'
+			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3>' + hours;
 			// stick it in there! 
 			$('#eventContainer').append($(day));
 		}
