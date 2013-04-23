@@ -57,6 +57,24 @@ $(document).ready(function () {
 	// Set Up the Menu 
 	$("#tabs").tabs();
 
+	// click event to change the label on a clicked shift
+	$('#eventContainer').delegate('.shift', 'click', function(event){
+		// $(this) is '.shift'
+		$(this).find('p').hide(); // Hide the current label p 
+		$(this).append('<input type="text" name="txtLabel" id="txtLabel" />'); // replace it with an input
+		$(this).find("#txtLabel").focus() // and set focus to avoid the nasty stacking click event 
+
+		// change the input back into a label
+		$(this).delegate('#txtLabel', 'change', function(){
+			// $(this) is '#txtLabel' 
+			// console.log('#txtLabel delegation worked, now on to firing the blur event')
+			$(this).siblings('p').text($('#txtLabel').val()); // change the label to the new value 
+			$(this).siblings('p').show(); // bring it back 
+			$(this).remove(); // and remove the input 
+		}); // end textbox event // end 2nd level delegate
+		return false;		
+	}); // End Delegate
+
     // Add a new shift when you click on name 
     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
 
