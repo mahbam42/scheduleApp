@@ -62,7 +62,7 @@ $(document).ready(function () {
 		// $(this) is '.shift'
 		$(this).find('p').hide(); // Hide the current label p 
 		$(this).append('<input type="text" name="txtLabel" id="txtLabel" />'); // replace it with an input
-		$(this).find("#txtLabel").focus() // and set focus to avoid the nasty stacking click event 
+		$(this).find("#txtLabel").focus(); // and set focus to avoid the nasty stacking click event 
 
 		// change the input back into a label
 		$(this).delegate('#txtLabel', 'change', function(){
@@ -72,7 +72,7 @@ $(document).ready(function () {
 			$(this).siblings('p').show(); // bring it back 
 			$(this).remove(); // and remove the input 
 		}); // end textbox event // end 2nd level delegate
-		return false;		
+		return false;
 	}); // End Delegate
 
     // Add a new shift when you click on name 
@@ -118,7 +118,7 @@ $(document).ready(function () {
 			var eventDay = (i+1); // Not strictly necessary but useful for the lazy 
 			// This will be made cleaner... 
 			// Sets a row of hours to the top of each day
-			var hours = '<div class="schedule"><div class="column">1am</div><div class="column">2am</div><div class="column">3am</div><div class="column">4am</div><div class="column">5am</div><div class="column">6am</div><div class="column">7am</div><div class="column">8am</div><div class="column">9am</div><div class="column">10am</div><div class="column">11am</div><div class="column">12pm</div><div class="column">1pm</div><div class="column">2pm</div><div class="column">3pm</div><div class="column">4pm</div><div class="column">5pm</div><div class="column">6pm</div><div class="column">7pm</div><div class="column">8pm</div><div class="column">9pm</div><div class="column">10pm</div><div class="column">11pm</div><div class="column" style="border: 0;">12am</div></div>'
+			var hours = '<div class="schedule"><div class="column">1am</div><div class="column">2am</div><div class="column">3am</div><div class="column">4am</div><div class="column">5am</div><div class="column">6am</div><div class="column">7am</div><div class="column">8am</div><div class="column">9am</div><div class="column">10am</div><div class="column">11am</div><div class="column">12pm</div><div class="column">1pm</div><div class="column">2pm</div><div class="column">3pm</div><div class="column">4pm</div><div class="column">5pm</div><div class="column">6pm</div><div class="column">7pm</div><div class="column">8pm</div><div class="column">9pm</div><div class="column">10pm</div><div class="column">11pm</div><div class="column" style="border: 0;">12am</div></div>';
 			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3>' + hours;
 			// stick it in there! 
 			$('#eventContainer').append($(day));
