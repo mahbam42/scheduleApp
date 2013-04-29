@@ -159,6 +159,19 @@ $(document).ready(function () {
 				}
 			}
 		});
+		fixShifts(); // checks and fixes everything
 	}); // End btnAddVolunteer click event
+
+	// Hacks 
+	// to fix '.shift' positioning changes 
+	function fixShifts() {
+		// Loop through each .shift and fix all of them 
+		$('.shift').each( function() {
+			$(this).css('position', 'relative'); // If a shift is stretched at all it is given 'position: absolute;' for some reason 
+			$(this).css('top', 0); // since it becomes 'position: absolute;' top is calulated from the top of the window
+			console.log('.shift position changed'); // log it to find out what's going on 
+		}); // End .shift fix 
+	}
+	// end hacks 
 }); // End Document Ready Block 
 
