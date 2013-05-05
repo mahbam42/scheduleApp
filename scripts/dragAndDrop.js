@@ -57,7 +57,7 @@ $(document).ready(function () {
 	// Set Up the Menu 
 	$("#tabs").tabs();
 
-	// Label Change
+	// Label Changer
 	// click event to change the label on a clicked shift
 	$('#eventContainer').delegate('.shift', 'click', function(event){
 		// $(this) is '.shift'
@@ -79,6 +79,7 @@ $(document).ready(function () {
 			return false;
 		}
 	}); // End Delegate
+	// End Label Changer Event 
 
     // Add a new shift when you click on name 
     shift = '<div class="shift"><span class="close">X</span><p>Regular Shift</p></div>';
