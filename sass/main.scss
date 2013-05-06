@@ -3,7 +3,8 @@
     padding: 0;
 }
 
-$name: 75px;
+$name: 75px; /* width of the name block */
+$hour: 50px; // Width for 1 hour 
 
 @mixin corners($color, $top, $right, $bottom, $left) {
     border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
@@ -24,7 +25,7 @@ $name: 75px;
     }
     .name  {
         width: $name;
-        float: left;
+        cursor: pointer;
         display: inline-block;
         text-align: center; 
         word-wrap: break-word;
@@ -47,7 +48,7 @@ $name: 75px;
 .schedule + * {
     margin-top: 0px;
 }
-// Not used in version 3
+
 .column {
     min-width: 48px;
     width: 49px;
@@ -84,6 +85,18 @@ $name: 75px;
             background-color: #ff0000;
             @include corners(#ff0000, 50px, 50px, 50px, 50px);
         }
+    }
+}
+
+/* Style for the Menu box */
+#tabs {
+    width: 60%;
+    height: 140px;
+    margin: 32px auto;
+    border: thin solid black;
+    font-size: 10px;
+    div {
+        padding-left: 2%;
     }
 }
 
