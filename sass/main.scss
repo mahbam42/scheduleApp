@@ -1,108 +1,111 @@
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 $name: 75px; /* width of the name block */
 $hour: 50px; // Width for 1 hour 
 
 @mixin corners($color, $top, $right, $bottom, $left) {
-    border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
-    -moz-border-radius:  $top $right $bottom $left; // 5px 5px 0px 0px
-    -webkit-border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
-    border: 3px solid $color;
+	border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
+	-moz-border-radius:  $top $right $bottom $left; // 5px 5px 0px 0px
+	-webkit-border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
+	border: 3px solid $color;
 }
 
+
+
 .rowContainer {
-    width: 1200px + $name + 4;
-    .row {
-	width: 1200px;
-	height: 50px;
-        display: inline-block;
-	border: thin black solid;
-	//margin: 5px auto;
-	overflow: auto; /* holds the shifts inside the box */
-    }
-    .name  {
-        width: $name;
-        cursor: pointer;
-        display: inline-block;
-        text-align: center; 
-        word-wrap: break-word;
-    }
+	width: ($hour * 24) + $name + 4;
+	.row {
+		width: ($hour * 24);
+		height: 50px;
+			display: inline-block;
+		border: thin black solid;
+		//margin: 5px auto;
+		overflow: auto; /* holds the shifts inside the box */
+	}
+	.name  {
+		width: $name;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center; 
+		word-wrap: break-word;
+	}
 }
 
 .schedule {
-    @extend .row; 
-    text-align: center;
-    font-weight: 700;
-    text-decoration: underline; 
-    height: 2em;
-    vertical-align: top;
-    margin-bottom: 0px;
-    margin-left: $name + 1;
-    z-index: -10;
-    position: relative;
+	@extend .row; 
+	text-align: center;
+	font-weight: 700;
+	text-decoration: underline; 
+	height: 2em;
+	vertical-align: top;
+	margin-bottom: 0px;
+	margin-left: $name + 1;
+	z-index: -10;
+	position: relative;
 }
 
 .schedule + * {
-    margin-top: 0px;
+	margin-top: 0px;
 }
 
 .column {
-    min-width: 48px;
-    width: 49px;
-    height: 100%;
-    float: left;
-    overflow: visible;
-    border-right: thin black dashed; 
+	min-width: 48px;
+	width: 49px;
+	height: 100%;
+	float: left;
+	overflow: visible;
+	border-right: thin black dashed; 
 }
 
 .shift {
-    display: inline-block;
-    border: thin black solid;
-    min-width: 50px;
-    width: 200px; /* Based on Current Math for a 4 hour shift */ 
-    height: 2.5em;
+	display: inline-block;
+	border: thin black solid;
+	min-width: 50px;
+	width: ($hour * 4); /* Based on Current Math for a 4 hour shift */ 
+	height: 2.5em;
 //    margin: 2px 3px;
-    z-index: 10;
-    text-align: center;
-    left: -5px;
-    .close {
-        cursor: pointer;
-        position: absolute;
-        top: 1px;
-        right: 1px;
-        margin: 3px;
-        font-size: 0.75em;
-        width: 1em;
-        height: 1em;
-        text-align: center;
-        color: #CCC;
-        &:hover {
-            color: #ffffff;
-            margin: 0;
-            background-color: #ff0000;
-            @include corners(#ff0000, 50px, 50px, 50px, 50px);
-        }
-    }
+	z-index: 10;
+	text-align: center;
+	left: -5px;
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		margin: 3px;
+		font-size: 0.75em;
+		width: 1em;
+		height: 1em;
+		text-align: center;
+		color: #CCC;
+		&:hover {
+			color: #ffffff;
+			margin: 0;
+			background-color: #ff0000;
+			@include corners(#ff0000, 50px, 50px, 50px, 50px);
+		}
+	}
 }
 
 /* Style for the Menu box */
 #tabs {
-    width: 60%;
-    height: 140px;
-    margin: 32px auto;
-    border: thin solid black;
-    font-size: 10px;
-    div {
-        padding-left: 2%;
-    }
+	width: 60%;
+	height: 140px;
+	margin: 32px auto;
+	border: thin solid black;
+	font-size: 10px;
+	div {
+		padding-left: 2%;
+	}
 }
 
 ul {
-    li {
-        margin-left: 2em;
-        // padding-left: 1em;
-    }
+	li {
+		margin-left: 2em;
+		// padding-left: 1em;
+	}
 }
