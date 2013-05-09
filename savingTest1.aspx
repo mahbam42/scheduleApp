@@ -11,6 +11,15 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script src="scripts/dragAndDrop.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSave').click(function () {
+                alert("Save Button Clicked! #eventContainer contains: " + $(#eventContainer).text)
+                $('#hfEventData').val($(#eventContainer).text);
+            });
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -99,10 +108,11 @@
 			</ul>
 		</div>
 	</div><!-- End Control Panel -->
-	<div id="eventContainer">
-		<h2 id="eventName"></h2>
-
-	</div>
+    <h2 id="eventName" runat="server"></h2>
+	<div id="eventContainer" runat="server">
+		
+	</div><!-- End #eventContainer -->
+    <asp:HiddenField ID="hfEventData" runat="server" />
     </form>
 </body>
 </html>

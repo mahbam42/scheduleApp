@@ -20,21 +20,53 @@ Partial Class savingTest1
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        ' Populate the ddl 
-        ddlLoadEvents.DataSource = ds.Tables(0)
-        ddlLoadEvents.DataTextField = "name"
-        ddlLoadEvents.DataBind()
+        If IsPostBack = False Then
+            ' Populate the ddl 
+            ddlLoadEvents.DataSource = ds.Tables(0)
+            ddlLoadEvents.DataTextField = "name"
+            ddlLoadEvents.DataBind()
+        End If
     End Sub
 
     Protected Sub ddlLoadEvents_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles ddlLoadEvents.SelectedIndexChanged
         ' Populate the created/modified labels based on selection
 
         'Set the index 
-        Dim index As Integer = ddlLoadEvents.SelectedIndex
+        Dim index As String = ddlLoadEvents.SelectedIndex
 
         lblCreated.Text = ds.Tables(0).Rows(index).Item(2)
         lblModified.Text = ds.Tables(0).Rows(index).Item(3)
     End Sub
+
+    ''' <summary>
+    ''' Loads the selected event 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Protected Sub btnLoad_Click(sender As Object, e As System.EventArgs) Handles btnLoad.Click
+        'Set the index 
+        Dim index As Integer = ddlLoadEvents.SelectedIndex
+
+        eventName.InnerHtml = "test - " + Date.Now() 'ds.Tables(0).Rows(index).Item(0)
+        eventContainer.InnerHtml = ds.Tables(0).Rows(index).Item(1)
+    End Sub
+
+    Protected Sub btnSave_Click(sender As Object, e As System.EventArgs) Handles btnSave.Click
+        writeData()
+    End Sub
+
+    Private Function writeData()
+        Dim newRow As DataRow = ds.Tables(0).NewRow()
+        newRow("name") = eventName.InnerHtml.ToString
+        newRow("schedule") = hfEventData.Value 'eventContainer.InnerHtml
+        newRow("created") = ""
+        newRow("modified") = Date.Now()
+
+        'Save it
+        ds.Tables(0).Rows.Add(newRow)
+        ds.WriteXml(Server.MapPath("events.xml"))
+    End Function
 
     ''' <summary>
     ''' Function to check (or update) dataset from a session 
@@ -58,4 +90,5 @@ Partial Class savingTest1
             Return Session.Item("MyDS")
         End If
     End Function
+
 End Class
