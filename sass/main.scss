@@ -7,6 +7,9 @@
 $name: 75px; /* width of the name block */
 $hour: 50px; // Width for 1 hour 
 
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,700);
+$mainFont: 'Yanone Kaffeesatz', serif; 
+
 @mixin corners($color, $top, $right, $bottom, $left) {
 	border-radius: $top $right $bottom $left; // 5px 5px 0px 0px
 	-moz-border-radius:  $top $right $bottom $left; // 5px 5px 0px 0px
@@ -14,7 +17,12 @@ $hour: 50px; // Width for 1 hour
 	border: 3px solid $color;
 }
 
-
+body {
+	font: {
+		family: $mainFont;
+		size: 16px;
+	}
+}
 
 .rowContainer {
 	width: ($hour * 24) + $name + 4;
