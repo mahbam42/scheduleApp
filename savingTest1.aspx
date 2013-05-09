@@ -19,10 +19,34 @@
 
 	<div id="tabs">
 		<ol>
-			<li><a href="#tab-1">Event Set-up</a></li>
+            <li><a href="#tab-4">Load Event</a></li>
+			<li><a href="#tab-1">Create Event</a></li>
 			<li><a href="#tab-2">Volunteers</a></li>
 			<li><a href="#tab-3">Info</a></li>
 		</ol>
+        <div id="tab-4">
+            <table>
+                <tr>
+                    <td>
+                        Load Event Schedule</td>
+                    <td>
+                        <asp:Button ID="btnLoad" runat="server" Text="Load" /></td>
+                    <td>
+                        <asp:Button ID="btnSave" runat="server" Text="Save" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:DropDownList ID="ddlLoadEvents" AutoPostBack="true" runat="server">
+                        </asp:DropDownList> <br />
+                        Created: 
+                        <asp:Label ID="lblCreated" runat="server" Text="Label"></asp:Label>
+                        &nbsp;Last Modified: 
+                        <asp:Label ID="lblModified" runat="server" Text="Label"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
 		<div id="tab-1"><!-- Event Set-up -->
 			<table>
 				<tr>

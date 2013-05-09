@@ -8,7 +8,6 @@ Imports System.Data
 Partial Class savingTest1
     Inherits System.Web.UI.Page
 
-    Public pathToXML As String = ""
     Dim dt As New DataTable
     Dim dv As DataView
     Dim ds As DataSet
@@ -16,6 +15,25 @@ Partial Class savingTest1
     Protected Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
         ds = getSessionDS()
 
+        'for debugging
+        Session.Item("MyDS") = Nothing
+    End Sub
+
+    Protected Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        ' Populate the ddl 
+        ddlLoadEvents.DataSource = ds.Tables(0)
+        ddlLoadEvents.DataTextField = "name"
+        ddlLoadEvents.DataBind()
+    End Sub
+
+    Protected Sub ddlLoadEvents_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles ddlLoadEvents.SelectedIndexChanged
+        ' Populate the created/modified labels based on selection
+
+        'Set the index 
+        Dim index As Integer = ddlLoadEvents.SelectedIndex
+
+        lblCreated.Text = ds.Tables(0).Rows(index).Item(2)
+        lblModified.Text = ds.Tables(0).Rows(index).Item(3)
     End Sub
 
     ''' <summary>
@@ -24,7 +42,7 @@ Partial Class savingTest1
     ''' <returns>dataset from xml given xml file </returns>
     ''' <remarks></remarks>
     Private Function getSessionDS() As Data.DataSet
-        ''Dim pathToXML As String = "invoices.xml" 'maybe don't need...
+        Dim pathToXML As String = "events.xml" 'reestablish each time 
         'check to see if we have read the xml file already, if not then we read it and save the result to asession variable.
         If Session.Item("MyDS") Is Nothing Then
             ' Reads invoices.xml and stores it to a dataTable accessable as a session variable
@@ -40,6 +58,4 @@ Partial Class savingTest1
             Return Session.Item("MyDS")
         End If
     End Function
-
-    
 End Class
