@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<events>
+  <!-- Empty Entry (Default) -->
+  <event>
+    <name>Test 1</name>
+    <schedule>
+      <![CDATA[
+      <div id="eventContainer">
+		    
+      </div>
+      ]]>
+    </schedule>
+    <created>5/8/2013</created>
+    <modified></modified>
+  </event>
+  <!-- Test Entry-->
+  <event>
+    <name>Test 1</name>
+    <schedule>
+      <![CDATA[
+      <div id="eventContainer">
+		    <h2 id="eventName">Test 1 </h2>
+    	  <div class="day"><h3>Tue May 07 2013 - Day 1</h3><div class="schedule"><div class="column">1am</div><div class="column">2am</div><div class="column">3am</div><div class="column">4am</div><div class="column">5am</div><div class="column">6am</div><div class="column">7am</div><div class="column">8am</div><div class="column">9am</div><div class="column">10am</div><div class="column">11am</div><div class="column">12pm</div><div class="column">1pm</div><div class="column">2pm</div><div class="column">3pm</div><div class="column">4pm</div><div class="column">5pm</div><div class="column">6pm</div><div class="column">7pm</div><div class="column">8pm</div><div class="column">9pm</div><div class="column">10pm</div><div class="column">11pm</div><div class="column" style="border: 0;">12am</div></div><div class="rowContainer"><div class="name"><p>Taco</p></div><div class="row"><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px; left: 120px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div></div></div><div class="rowContainer"><div class="name"><p>Amy</p></div><div class="row"></div></div></div><div class="day"><h3>Wed May 08 2013 - Day 2</h3><div class="schedule"><div class="column">1am</div><div class="column">2am</div><div class="column">3am</div><div class="column">4am</div><div class="column">5am</div><div class="column">6am</div><div class="column">7am</div><div class="column">8am</div><div class="column">9am</div><div class="column">10am</div><div class="column">11am</div><div class="column">12pm</div><div class="column">1pm</div><div class="column">2pm</div><div class="column">3pm</div><div class="column">4pm</div><div class="column">5pm</div><div class="column">6pm</div><div class="column">7pm</div><div class="column">8pm</div><div class="column">9pm</div><div class="column">10pm</div><div class="column">11pm</div><div class="column" style="border: 0;">12am</div></div><div class="rowContainer"><div class="name"><p>Taco</p></div><div class="row"><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px; left: 45px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div></div></div><div class="rowContainer"><div class="name"><p>Amy</p></div><div class="row"><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div><div class="shift ui-resizable ui-draggable" style="position: relative; top: 0px;"><span class="close">X</span><p>Regular Shift</p><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div></div></div></div>
+      </div>
+      ]]>
+    </schedule>
+    <created>5/8/2013</created>
+    <modified></modified>
+  </event>
+</events>
