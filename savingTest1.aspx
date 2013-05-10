@@ -15,8 +15,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#btnSave').click(function () {
-                alert("Save Button Clicked! #eventContainer contains: " + $(#eventContainer).text)
-                $('#hfEventData').val($(#eventContainer).text);
+                alert("Save Button Clicked! #eventContainer contains: " + $('#eventContainer').text);
+                $('#hfEventData').val($('#eventContainer').text);
             });
         });
     </script>
