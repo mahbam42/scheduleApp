@@ -4,6 +4,9 @@
 	padding: 0;
 }
 
+// Mixins for fun! 
+@import 'mixins.scss'; 
+
 $name: 75px; /* width of the name block */
 $hour: 50px; // Width for 1 hour 
 
@@ -57,17 +60,17 @@ body {
 	vertical-align: top;
 	margin-bottom: 0px;
 	margin-left: $name + 1;
-	z-index: -10;
-	position: relative;
+	z-index: 5;
+	position: absolute;
 }
 
 .schedule + * {
-	margin-top: 0px;
+	margin-top: 1em;
 }
 
 .column {
 	min-width: 48px;
-	width: 49px;
+	width: $hour - 1;
 	height: 100%;
 	float: left;
 	overflow: visible;
@@ -81,7 +84,6 @@ body {
 	min-width: 50px;
 	width: ($hour * 4); /* Based on Current Math for a 4 hour shift */ 
 	height: 2.5em;
-//    margin: 2px 3px;
 	z-index: 10;
 	text-align: center;
 	left: -5px;
@@ -117,9 +119,12 @@ body {
 	}
 }
 
+h1 {
+	color: #27AE60;
+}
+
 ul {
 	li {
 		margin-left: 2em;
-		// padding-left: 1em;
 	}
 }
