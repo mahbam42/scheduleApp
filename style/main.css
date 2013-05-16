@@ -6,8 +6,12 @@
 
 /* width of the name block */
 body {
+  background-color: #2C3E50;
   font-family: "Yanone Kaffeesatz", serif;
   font-size: 16px; }
+
+#eventContainer {
+  background-color: #95A5A6; }
 
 .rowContainer {
   width: 1279px; }
@@ -48,6 +52,7 @@ body {
   border-right: thin black dashed; }
 
 .shift {
+  background-color: #ECF0F1;
   display: inline-block;
   border: thin black solid;
   min-width: 50px;
