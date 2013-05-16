@@ -166,8 +166,11 @@ $(document).ready(function () {
 			}
 		});
 		fixShifts(); // checks and fixes everything
+		// redraw .schedule row to match the height of everything
+		var $schHeight = $('.schedule').height();
+		$schHeight += 50; //hard coded yes, can be fixed later... 
+		$('.schedule').height($schHeight);
 	}); // End btnAddVolunteer click event
-
 	// Hacks 
 	// to fix '.shift' positioning changes 
 	function fixShifts() {
