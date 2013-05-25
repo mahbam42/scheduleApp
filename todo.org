@@ -1,7 +1,0 @@
-Tasks for scheduleApp
-* Change code to add event name
-    now positioned above #eventContainer
-    - $(this).siblings(#eventName).text($('txtEventName').val());
-* Style buttons
-* '.name' click event firing multiple times
-* call functions on load 
