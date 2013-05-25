@@ -24,38 +24,6 @@
 	<script>
 	// Experimental Stuff goes here!
 // $(document).ready(function (){
-//     $("#tabs").tabs();
-// });
-
-// $(document).ready( function() {
-// 	$('#btnNewEvent').click( function() {
-// 		// Add Event Name 
-// 		if ($('#txtEventName').val() !== ""){
-// 			$('#eventName').text($('#txtEventName').val());
-// 		}
-// 		// Get Event Lenght
-// 		function parseDate(str) {
-// 		var mdy = str.split('-');
-// 		return new Date(mdy[0], mdy[1]-1, mdy[2]);
-// 		}
-// 		function daydiff(first, second) {
-// 			return ((second-first)/(1000*60*60*24))
-// 		}
-// 		eventLength = daydiff(parseDate($('#startDate').val()), parseDate($('#endDate').val()));
-
-// 		// Set up what to add for each day 
-// 		for(i = 0; i <= eventLength; i++){
-// 			// Set-up for adding the date to each 'day' 
-// 			mdy = $('#startDate').val().split('-');
-// 			var dayN = new Date(mdy[0], mdy[1]-1, mdy[2]+++i)
-// 			var eventDay = (i+1); 
-// 			var day = '<div class="day"><h3>' + dayN.toDateString() + ' - Day ' + eventDay + '</h3><div class="rowContainer"></div>';
-// 			$('#eventContainer').append($(day));
-// 		};
-
-// 		// Add shift length global variable 
-// 	}); // End btnNewEvent click event 
-// 	// Add volunteer panel logic -all 
 
 // });
 
@@ -96,7 +64,7 @@
 			<table>
 				<tr>
 					<td>Name</td>
-					<td># of Shifts</td>
+					<td># of Shifts (per day)</td>
 					<td>Length of Shifts (in Hours)</td>
 					<td rowspan="2">
 						<input type="button" id="btnAddVolunteer" value="Add Volunteer">
@@ -125,8 +93,9 @@
 			</ul>
 		</div>
 	</div><!-- End Control Panel -->
+	<h2 id="eventName"></h2>
 	<div id="eventContainer">
-		<h2 id="eventName"></h2>
+		
 
 	</div>
 </body>

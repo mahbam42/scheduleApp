@@ -15,7 +15,8 @@ body {
   background-color: #95A5A6; }
 
 #eventName {
-  margin: 1% 2%; }
+  margin: 1% 2%;
+  color: #27AE60; }
 
 .day {
   margin-bottom: 3%; }
