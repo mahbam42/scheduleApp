@@ -52,6 +52,13 @@ function setShiftLength(e) {
 	}
 }
 
+// redraw .schedule row to match the height of everything
+function drawScheduleHeight() {
+	var $schHeight = $('.schedule').height();
+	$schHeight += 22; //hard coded yes, can be fixed later... 
+	$('.schedule').height($schHeight);
+}
+
 // Holds all of the page events 
 $(document).ready(function () {
 	// Set Up the Menu 
@@ -91,12 +98,19 @@ $(document).ready(function () {
             stretch($newshift);
             drag($newshift);
             closer($newshift);
+
+            if ($('.row').length <= 0){
+				drawScheduleHeight();
+            }
     });
     // Otherwise this catches '.name' when added
     // Set-up a watch for when '.name' is added to the page 
 	$('#eventContainer').delegate('.name', 'click', function(){
 		//console.log("Clicked on Name, and that means delegate worked");
 		addNew($(this));
+		if ($('.row').length <= 0){
+				drawScheduleHeight();
+		}
 	});
 
     // Set-up a new event schedule 
@@ -166,11 +180,9 @@ $(document).ready(function () {
 			}
 		});
 		fixShifts(); // checks and fixes everything
-		// redraw .schedule row to match the height of everything
-		var $schHeight = $('.schedule').height();
-		$schHeight += 50; //hard coded yes, can be fixed later... 
-		$('.schedule').height($schHeight);
+		drawScheduleHeight() // Draw the schedule behind everything to be the right height
 	}); // End btnAddVolunteer click event
+
 	// Hacks 
 	// to fix '.shift' positioning changes 
 	function fixShifts() {

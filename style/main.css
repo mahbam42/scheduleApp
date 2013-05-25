@@ -27,7 +27,6 @@ body {
   width: 1279px; }
   .rowContainer .row, .rowContainer .schedule {
     width: 1200px;
-    height: 50px;
     display: inline-block;
     border: thin black solid;
     overflow: auto;
@@ -68,7 +67,6 @@ body {
   min-width: 50px;
   width: 200px;
   /* Based on Current Math for a 4 hour shift */
-  height: 2.5em;
   z-index: 10;
   text-align: center;
   left: -5px; }
@@ -76,7 +74,7 @@ body {
     cursor: pointer;
     position: absolute;
     top: 1px;
-    right: 1px;
+    left: 1px;
     margin: 3px;
     font-size: 0.75em;
     width: 1em;
