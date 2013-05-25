@@ -33,7 +33,7 @@ function closer(e) {
 //Call to add a new Shift 
 function addNew(e) {
     // Set Up an Empty Shift 
-    shift = '<div class="shift" style="width: ' + $shiftLength + ';"><span class="close">X</span><p>Regular Shift</p></div>';
+    shift = '<div class="shift" style="width: ' + $shiftLength + ';"><span class="close">X</span><p>' + e.text() + '</p></div>';
     var $newshift = $(shift); // Jackie Treehorn treats ojects like women man
     $(e).siblings(".row").append($newshift);
     // Calls all of the interactive goodies on the new shift 
